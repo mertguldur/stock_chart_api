@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: stock_chart_api_development
+  pool: 5
+  username:
+  password:
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: stock_chart_api_test
+  pool: 5
+  username:
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: stock_chart_api__production
+  pool: 5
+  username:
+  password:
+
+cucumber:
+  <<: *TEST
