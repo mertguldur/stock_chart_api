@@ -31,6 +31,9 @@ class Company < ApplicationRecord
   def average_quote_price(quote)
     fields = [quote.low, quote.high, quote.open, quote.close]
     sum = fields.inject(0) { |s, n| s + BigDecimal.new(n) }
-    sum / BigDecimal.new(fields.size.to_s)
+    num_fields = BigDecimal.new(fields.size.to_s)
+
+    average = sum / num_fields
+    '%.2f' %  average.round(2)
   end
 end
