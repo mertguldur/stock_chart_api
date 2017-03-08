@@ -9,11 +9,9 @@ class Company < ApplicationRecord
   def quotes
     client = YahooFinance::Client.new
     start_date = Time.now - (24 * 60 * 60 * HISTORICAL_QUOTE_DAY_INTERVAL)
-    end_date = Time.now
-    time_frame = { start_date: start_date, end_date: end_date }
 
     quotes = client
-      .historical_quotes(symbol, time_frame)
+      .historical_quotes(symbol, start_date: start_date)
       .sort_by { |quote| Date.parse(quote.trade_date) }
 
     id = 0
