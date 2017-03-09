@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303231151) do
+ActiveRecord::Schema.define(version: 20170309034835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "companies", force: :cascade do |t|
     t.text "symbol", null: false
     t.text "name",   null: false
+    t.index "name gin_trgm_ops", name: "name_idx", using: :gin
     t.index ["symbol"], name: "index_companies_on_symbol", unique: true, using: :btree
   end
 
