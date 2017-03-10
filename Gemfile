@@ -48,6 +48,7 @@ group :test do
   gem 'database_cleaner'
   gem 'jsonpath', require: false
   gem 'rspec-expectations'
+  gem 'rspec-mocks'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -8,18 +8,18 @@ Feature: Companies
       """
       [
         {
-          "id": "#{@companies[:aa].id}",
+          "id": "#{@companies['AA'].id}",
           "type": "companies",
           "attributes": {
-            "symbol": "#{@companies[:aa].symbol}",
+            "symbol": "#{@companies['AA'].symbol}",
             "name": "AA"
           }
         },
         {
-          "id": "#{@companies[:ab].id}",
+          "id": "#{@companies['AB'].id}",
           "type": "companies",
           "attributes": {
-            "symbol": "#{@companies[:ab].symbol}",
+            "symbol": "#{@companies['AB'].symbol}",
             "name": "AB"
           }
         }
@@ -34,18 +34,18 @@ Feature: Companies
       """
       [
         {
-          "id": "#{@companies[:aa].id}",
+          "id": "#{@companies['AA'].id}",
           "type": "companies",
           "attributes": {
-            "symbol": "#{@companies[:aa].symbol}",
+            "symbol": "#{@companies['AA'].symbol}",
             "name": "AA"
           }
         },
         {
-          "id": "#{@companies[:ab].id}",
+          "id": "#{@companies['AB'].id}",
           "type": "companies",
           "attributes": {
-            "symbol": "#{@companies[:ab].symbol}",
+            "symbol": "#{@companies['AB'].symbol}",
             "name": "AB"
           }
         }
