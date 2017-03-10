@@ -47,6 +47,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'jsonpath', require: false
+  gem 'rspec-expectations'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
