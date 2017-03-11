@@ -1,4 +1,4 @@
-class CompaniesController < ApplicationController
+class Api::CompaniesController < ApplicationController
   def index
     companies = Company
       .search_by_prefix(params[:prefix])

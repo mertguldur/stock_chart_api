@@ -2,7 +2,7 @@ Feature: Companies
 
   Scenario: Same case prefix search
     Given I have companies with names "AA, AB, BB"
-    When I send a GET request to "companies?prefix=A"
+    When I send a GET request to "api/companies?prefix=A"
     Then the response status should be "200"
     And the JSON response data should be:
       """
@@ -28,7 +28,7 @@ Feature: Companies
 
   Scenario: Different case prefix search
     Given I have companies with names "AA, AB, BB"
-    When I send a GET request to "companies?prefix=a"
+    When I send a GET request to "api/companies?prefix=a"
     Then the response status should be "200"
     And the JSON response data should be:
       """
@@ -53,7 +53,7 @@ Feature: Companies
       """
 
   Scenario: No companies
-    When I send a GET request to "companies"
+    When I send a GET request to "api/companies"
     Then the response status should be "200"
     And the JSON response data should be:
       """
@@ -62,19 +62,19 @@ Feature: Companies
 
    Scenario: Page size
     Given I have "26" companies
-    When I send a GET request to "companies"
+    When I send a GET request to "api/companies"
     Then the response status should be "200"
     And I should only see "25" items in JSON response data
 
   Scenario: Page 2
     Given I have "26" companies
-    When I send a GET request to "companies?page=2"
+    When I send a GET request to "api/companies?page=2"
     Then the response status should be "200"
     And I should only see "1" items in JSON response data
 
   Scenario: Pagination data
     Given I have "26" companies
-    When I send a GET request to "companies"
+    When I send a GET request to "api/companies"
     Then the response status should be "200"
     And the JSON response pagination data should be:
       """
