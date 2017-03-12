@@ -7,10 +7,13 @@ namespace :companies do
 
     file_names.each do |file_name|
       CSV.foreach("#{folder}/#{file_name}.csv") do |row|
-        next if row.first == 'Symbol'
-        next if Company.find_by(symbol: row.first).present?
+        symbol = row.first
+        name = row.second
 
-        companies << Company.new(symbol: row.first, name: row.second)
+        next if symbol == 'Symbol' || symbol.include?('^')
+        next if Company.find_by(symbol: symbol).present?
+
+        companies << Company.new(symbol: symbol, name: name)
         if companies.size == batch_size
           Company.import(companies)
           companies = []
